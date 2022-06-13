@@ -1,0 +1,1 @@
+Run android emulator: `%ANDROID_SDK_ROOT%\tools\emulator -avd Pixel_2_API_29 -verbose -show-kernel`

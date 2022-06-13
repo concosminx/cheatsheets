@@ -1,0 +1,3 @@
+#one file or folder / line
+D:\Dropbox\Photos\Utile\Photo_Content
+D:\Projects\GIT\web-samples\bootstrap\setup
