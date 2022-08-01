@@ -1,0 +1,12 @@
+subversion
+git
+gradle
+junit
+github-api
+github
+chucknorris
+mailer
+github-pullrequest
+pipeline-utility-steps
+groovy
+cloudbees-folder
