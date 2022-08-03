@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  duplicati:
+    image: lscr.io/linuxserver/duplicati
+    container_name: duplicati
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Europe/Bucharest
+    volumes:
+      - /mnt/filesync/duplicati/config:/config
+      - /mnt/filesync/duplicati/backups:/backups
+      - /home/cosmin/:/source
+    ports:
+      - 8270:8200
+    restart: unless-stopped
