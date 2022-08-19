@@ -1,4 +1,4 @@
-# Redmine 
+# Redmine - project management web application
 
 1. start the containers with `docker-compose up -d`
 2. stop the containers with `docker-compose down`

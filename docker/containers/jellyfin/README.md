@@ -1,4 +1,4 @@
-# Jellyfin 
+# Jellyfin - Free Software Media System
 
 ```bash
 docker run -d \

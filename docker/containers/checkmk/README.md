@@ -19,7 +19,7 @@ services:
     restart: always
     image: 'checkmk/check-mk-raw:2.0.0-latest'
 ```
-- run `docker-compose up -d && docker-compose logs -f`
+- run `docker-compose up -d && docker-compose logs -f` and get the default user and password
 - install the agent with `sudo rpm -i agent.rpm` or `sudo yum localinstall agent.rpm`
 - check if the agent is running `systemctl --type=service`
 
