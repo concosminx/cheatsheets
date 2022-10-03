@@ -1,6 +1,6 @@
 FROM jenkins/jenkins:lts
 
-MAINTAINER cosmin <concosminx@gmail.com>
+LABEL maintainer="concosminx@something.com"
 
 ENV JENKINS_USER admin
 ENV JENKINS_PASS admin1
