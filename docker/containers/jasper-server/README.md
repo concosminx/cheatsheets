@@ -5,3 +5,5 @@ curl -sSL https://raw.githubusercontent.com/bitnami/containers/main/bitnami/jasp
 
 docker-compose up -d
 ```
+
+[see source for extra configuration](https://github.com/bitnami/bitnami-docker-jasperreports)
