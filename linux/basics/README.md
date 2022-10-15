@@ -67,7 +67,7 @@
   * `mkdir myStuff ..`
   * `mkdir myStuff/pictures/ ..`
   * `-p` - parrents
-
+* `rmdir` - remove a directory (works only if the directory is empty)
 * `rm` - remove file / directory 
   * `rm <fileName> ..` - delete file (s) 
   * `rm -r <foldername>/` - delete folder
@@ -88,7 +88,9 @@
   * `mv <fileName> stuff/newfileName`
   * `mv <folderName>/ ..` - move folder up in hierarchy
 * `touch <fileName>` - create or update a file
-* `cat <fileName>` - concatenates and displays files 
+  * `touch afile-{a..c}.txt` - creates a afile-a.txt, afile-b.txt, afile-c.txt
+  * 
+* `cat <fileName>` - concatenates and displays files; u can use-it to concatenate files `cat file1.txt file2.txt > bigfile.txt`
 * `more <fileName>` - output the contents of the file/paging
 * `less <fileName>` - output the contents of the file/paging
 * `head <fileName>` - output first 10 lines of file; from the top `-n <#oflines> <fileName>` 
@@ -169,7 +171,7 @@
   * `ps aux` - ps with a lot of details 
   * `ps -ef | grep processname` - display process information for processname
 * `-u` - process's from current user
-* `kill pid` - kill process with process ID of pid; You need the PID # of the process `ps -u <AccountName> | grep <Application>`
+* `kill pid` - kill process with process ID of pid; You need the PID # of the process `ps -u <AccountName> | grep <Application>`; view signal names with `kill -l`
 * `CTRL+C` - kills the foreground process
   * `kill -9  <PID>` - horror kill :)  
 * `kilall proc` - kill all processes named *proc*
@@ -285,6 +287,7 @@
   * `sort -r <fileName>` - sort in reverse
   * `sort -R <fileName>` - sort randomly
   * `sort -n <fileName>` - sort numbers
+* `uniq` - report or omit repeated linesq
 * `wc` - word count
   * `wc <fileName>` - nbr of line, nbr of words, byte size `-l` (lines); `-w` (words); `-c` (byte size); `-m` (number of characters)
 * `cut` - cut a part of a file
@@ -345,7 +348,7 @@
 * `w` - ask for confirmation 
 * `v` - verbose
 
-* `gzip file` - compresses file and renames it to file.gz
+* `gzip file` - compresses file and renames it to file.gz (keep the original file with `-k`)
 * `gzip -d file.gz` - decompresses file.gz back to file 
 * `gzcat` - concatenates compressed files
 * `zcat` - concatenates compressed files
@@ -529,6 +532,7 @@ you  can  make  a  pause  between  commands  (minutes,  hours,  days); ex --> `t
 ## Chain commands
 
 * `|` at the end of a command to enter another one: `du | sort -nr | less`
+* `xargs` - build and execute command lines from standard input
 
 # Wildcards
 * used for pattern matching
@@ -578,7 +582,8 @@ Examples
 * `alias [name[-value]]`
 * `unalias name` (remove the “name” alias)
 * `unalias -a` (remove all aliases)
-* Add aliases to you personal initialization files `.bash_profile`
+* Add aliases to you personal initialization files `.bash_profile` / `.bashrc` (reload with `source`)
+
 
 
 Examples: 
