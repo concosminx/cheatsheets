@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  wordpress:
+    image: wordpress:${WP_VERSION}
+    restart: always
+    container_name: wp1
+    links:
+     - mariadb:mysql
+    environment:
+     - WORDPRESS_DB_PASSWORD=${DB_PASSWORD}
+     - WORDPRESS_DB_USER=${DB_USER}
+#    ports:
+#    - "8091:80"
+    volumes:
+     - ./html:/var/www/html
+  mariadb:
+    image: mariadb:${DB_VERSION}
+    restart: always
+    container_name: db1
+    environment:
+     - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+     - MYSQL_DATABASE=${DB_NAME}
+    volumes:
+     - ./database:/var/lib/mysql
+
+networks:
+  default:
+    name: my-main-net
+    external: true

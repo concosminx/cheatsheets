@@ -58,3 +58,9 @@ networks:
     external: true 
 
 ```
+
+
+Execute back-up from host: 
+- write the variables in .env file 
+- backup with `source .env && docker-compose exec mariadb mysqldump -uroot -p${MARIADB_ROOT_PASSWORD} --all-databases > mariadb-dump-$(date +%F_%H-%M-%S).sql`
+- restore with `source .env && docker-compose exec -T mariadb mysql -uroot -p${MARIADB_ROOT_PASSWORD} < mariadb-dump.sql`
