@@ -1,7 +1,7 @@
 # Install WordPress with Docker
 
 ## Create a new folder and cd into
-`mkdir  ~/wordpress-compose && cd ~/wordpress-compose`
+`mkdir wordpress-compose && cd wordpress-compose`
 
 ## Create a new docker-compose.yml file
 `nano docker-compose.yml`
@@ -12,23 +12,23 @@
 version: "3.7"
 services:
   wordpress:
-    image: wordpress
+    image: wordpress:${WP_VERSION}
     restart: always
     links:
      - mariadb:mysql
     environment:
-     - WORDPRESS_DB_PASSWORD=password
-     - WORDPRESS_DB_USER=root
+     - WORDPRESS_DB_PASSWORD=${DB_PASSWORD}
+     - WORDPRESS_DB_USER=${DB_USER}
     ports:
-    - "80:80"
+    - "8091:80"
     volumes:
      - ./html:/var/www/html
   mariadb:
-    image: mariadb
+    image: mariadb:${DB_VERSION}
     restart: always
     environment:
-     - MYSQL_ROOT_PASSWORD=password
-     - MYSQL_DATABASE=wordpress
+     - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+     - MYSQL_DATABASE=${DB_NAME}
     volumes:
      - ./database:/var/lib/mysql
   backup:
@@ -41,14 +41,20 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./db-back-up:/db
-#     - ./pre-backup/scripts:/scripts.d/pre-backup
-#     - ./post-backup/scripts:/scripts.d/post-backup
+      - ./pre-backup/scripts:/scripts.d/pre-backup
+      - ./post-backup/scripts:/scripts.d/post-backup
     environment:
      - DB_DUMP_TARGET=/db
      - DB_PORT=3306
-     - DB_USER=root
-     - DB_PASS=password
+     - DB_USER=${DB_USER}
+     - DB_PASS=${DB_PASSWORD}
      - DB_DUMP_FREQ=1440
      - DB_DUMP_BEGIN=+1
      - DB_SERVER=mariadb
+
+networks:
+  default:
+    name: my-main-net
+    external: true 
+
 ```
