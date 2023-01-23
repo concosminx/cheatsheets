@@ -8,6 +8,7 @@
   - [Java JDK](#java-jdk)
   - [Git](#git)
   - [Gradle](#gradle)
+- [Enable SSH with root (not the greatest idea)](#enable-ssh-with-root-not-the-greatest-idea)
 
 ---
 
@@ -47,3 +48,10 @@ Check [documentation](https://docs.docker.com/engine/install/ubuntu/)
 - open a new terminal or enter `source "$HOME/.sdkman/bin/sdkman-init.sh"`
 - install the gradle version `sdk install gradle 7.6`
 - check the gradle instalation `gradle --version`
+
+# Enable SSH with root (not the greatest idea)
+- edit sshd config `sudo nano /etc/ssh/sshd_config`
+- manualy modify from `#PermitRootLogin prohibit-password` to `PermitRootLogin yes`
+- or use `sed` command `sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config`
+- restart the ssh service `sudo systemctl restart ssh`
+- set the password for root `sudo passwd` (by default the root password is not set)
