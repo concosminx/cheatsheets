@@ -22,6 +22,7 @@ Examples:
 - [Traefik](traefik/README.md)
 - [uptime-kuma](uptime-kuma/README.md)
 - [xwiki](xwiki/README.md)
+- [smtp4dev](smtp4dev/README.md)
 
 Cleanup:
 
