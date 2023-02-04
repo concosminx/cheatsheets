@@ -9,3 +9,4 @@
 - [nginx](nginx/README.md)
 - [OpenSSL](openssl/README.md)
 - [Windows](windows/README.md)
+- [MiniKube](minikube/README.md)
