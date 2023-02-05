@@ -1,0 +1,36 @@
+version: '3'
+volumes:
+  postgres_data:
+      driver: local
+services:
+  postgres:
+      container_name: keycloak-db
+      image: postgres:14.6
+      volumes:
+        - ./postgres:/var/lib/postgresql/data
+      environment:
+        POSTGRES_DB: keycloack
+        POSTGRES_PASSWORD: pg-user
+        POSTGRES_USER: pg-password
+  keycloak:
+      container_name: keycloak-server
+      image: quay.io/keycloak/keycloak:20.0
+#      env_file:
+#        - .env
+      environment:
+        KC_FEATURES: preview 
+        KC_HOSTNAME: localhost
+        KEYCLOAK_ADMIN: admin
+        KEYCLOAK_ADMIN_PASSWORD: admin
+      entrypoint: /opt/keycloak/bin/kc.sh start --https-certificate-file=/data/keycloak-server.crt.pem --https-certificate-key-file=/data/keycloak-server.key.pem
+      volumes:
+        - ./data:/data:rw
+      ports:
+        - 8080:8080
+        - 8443:8443
+      depends_on:
+        - postgres
+
+#Note:
+#Generate a self signed certificate in ./data folder
+#openssl req -newkey rsa:2048 -nodes -keyout keycloak-server.key.pem -x509 -days 3650 -out keycloak-server.crt.pem
