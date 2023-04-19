@@ -82,3 +82,47 @@ getmac /v
 
 ## Restart in system Bios 
 `shutdown /r /fw /f /t 0`
+
+## Open command prompt in administrator mode
+`runas /user:Administrator cmd`
+
+## Hide a zip | rar file
+`copy /b image.extension+folder.zip image.extension`
+
+## Encrypt files in a folder
+`cipher /E`
+
+## Hide a folder
+`attrib +h +s +r foldername` and unhide it with `attrib -h -s -r foldername`
+
+## Show wi-fi passwords
+- show the list of WiFi networks: `netsh wlan show profile`
+- show the password: `netsh wlan show profile wifinetwork key=clear | findstr “Key Content”`
+- see all WiFi networks: `for /f "skip=9 tokens=1,2 delims=:" %i in ('netsh wlan show profiles') do @if "%j" NEQ "" (echo SSID: %j & netsh wlan show profiles %j key=clear | findstr "Key Content") & echo.`
+
+## Detailed system operating and configuration info
+`systeminfo`
+
+## Copy files between remote hosts
+`scp file.txt root@serverip:~/file.txt`
+
+## Map a regular folder as a mounted drive
+`subst t: c://filelocation` and `subst /d t:` to remove it
+
+## Change the Background and Text color in cmd
+`color 07 [background:text]`
+
+## curl examples
+- `curl wttr.in/location` - weather
+- `curl --head --location “<https://short/exp> | location` - destination for shortened link
+- `curl checkip.amazonaws.com` - check the ip
+- `curl qrenco.de/https://www.emag.ro` - generate qr
+
+## Visit a site 
+`start emag.ro`
+
+## Delete temporary files
+`del /q /f /s %temp%\\*`
+
+## History 
+`doskey / history`
