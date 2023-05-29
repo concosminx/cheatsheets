@@ -41,3 +41,6 @@ services:
 #Note:
 #Generate a self signed certificate in ./data folder
 #openssl req -newkey rsa:2048 -nodes -keyout keycloak-server.key.pem -x509 -days 3650 -out keycloak-server.crt.pem
+
+# use -proxy reencrypt if nginx comunicate over HTTPS with keycloak; 
+# use -proxy egde if nginx comunicate over HTTP with keycloak; 
