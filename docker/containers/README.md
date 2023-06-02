@@ -7,7 +7,7 @@ Examples:
 - [groovy](groovy/README.md)
 - [jellyfin](jellyfin/README.md)
 - [jenkins](jenkins/README.md)
-- [Keycloack](keycloack/README.md)
+- [Keycloak](keycloak/README.md)
 - [mongo-db](mongo/README.md)
 - [navidrome](navidrome/README.md)
 - [nginx-proxy-manager](nginx-proxy-manager/README.md)
