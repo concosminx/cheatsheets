@@ -22,7 +22,8 @@ services:
 networks:
   default:
     name: my-main-net
-    external: true ```
+    external: true
+```
 
 - run `docker-compose up -d && docker-compose logs -f` and get the default user and password
 - install the agent with `sudo rpm -i agent.rpm` or `sudo yum localinstall agent.rpm` or `sudo dpkg -i agent.deb`
