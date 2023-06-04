@@ -17,10 +17,15 @@ services:
       - '/etc/localtime:/etc/localtime:ro'
     container_name: monitoring
     restart: always
-    image: 'checkmk/check-mk-raw:2.0.0-latest'
-```
+    image: 'checkmk/check-mk-raw:master-daily'
+
+networks:
+  default:
+    name: my-main-net
+    external: true ```
+
 - run `docker-compose up -d && docker-compose logs -f` and get the default user and password
-- install the agent with `sudo rpm -i agent.rpm` or `sudo yum localinstall agent.rpm`
+- install the agent with `sudo rpm -i agent.rpm` or `sudo yum localinstall agent.rpm` or `sudo dpkg -i agent.deb`
 - check if the agent is running `systemctl --type=service`
 
 
