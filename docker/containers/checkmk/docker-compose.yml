@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  check-mk-raw:
+    ports:
+      - '8085:5000'
+    tmpfs: '/opt/omd/sites/cmk/tmp:uid=1000,gid=1000'
+    volumes:
+      - './monitoring:/omd/sites'
+      - '/etc/localtime:/etc/localtime:ro'
+    container_name: monitoring
+    restart: always
+    image: 'checkmk/check-mk-raw:master-daily'
+
+networks:
+  default:
+    name: my-main-net
+    external: true
