@@ -1,0 +1,1 @@
+https://docs.linuxserver.io/general/swag#swag
