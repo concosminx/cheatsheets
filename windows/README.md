@@ -126,3 +126,117 @@ getmac /v
 
 ## History 
 `doskey / history`
+
+## Create a new file
+`type nul> file-name.extension`
+
+## View the task list
+`tasklist`
+
+## Kill a task
+`taskkill /PID 1234`
+
+## View running services
+`net start`
+
+## Stop a service 
+`net stop "Windows Time"`
+
+## See the drivers
+`driverquery`
+
+## Collect system info
+- `wmic`
+- `/output:c:\info.txt product get name,version`
+- `cpu`
+
+## Details about the disk(s)
+- `diskpart`
+- `list disk`
+- `detail disk`
+- `select disk 1` - select a disk
+- `clean` - check the disk
+- `create partition primary` - create a primary partition
+- `select partition 1` - create first partition
+- `format fs=ntfs quick` - format a NTFS quick
+- `active` - activate the drive
+- `assign` - assing the partition
+- `exit` - exit the `diskpart` tool
+- `label f:` - assing a label
+
+
+## Check disk(s)
+`chkdsk`
+
+## See MAC address
+`getmac`
+
+## System information
+`systeminfo`
+
+## User management
+- `lusrmgr.msc`
+- `net user` - see users
+- `net user a-new-user /add passw0rd` - create a new user with password
+- `net user /del a-new-user` - delete a user
+- `net user administrator /active:yes` - enable administrator account
+- `net user "my-user" *` - disable password
+
+## Hyde and encrypt files
+- `attrib +H +R +S` - hide the files
+- `attrib -H -R -S` - show the files
+- `cipher /e` - encrypt
+- `cipher /d` - decrypt
+- `cipher /rekey` - upgrade keys
+
+## File associations
+- `assoc.txt` - check `.txt` file association
+
+## Creating and exporting files
+- `echo blabla > my-file.txt` 
+- `copy con my-console-file.txt` - multi line txt (stop with Ctrl + Z)
+- `type filename.txt` - display the text file in the command
+
+## Other commands
+- `tree` - display directory tree
+- `date` - change date
+- `time` - similar with date
+- `doskey/history` - see command history
+- `shutdown`
+    - `-s` - shutdown
+    - `-t` - specify a time (seconds)
+    - `-r` - restart
+- `chkntfs DRIVE_LETTER:` - checks the ntfs file system
+- `schtasks` - view all scheduled tasks
+- `ver` - MS win version
+- `openfiles` - files opened remotely
+
+
+## The `ipconfig` command
+- `ipconfig` - general info
+- `ipconfig /all` - more info
+- `ipconfig /renew` - refresh the IP
+- `ipconfig /displaydns` - all DNSs
+- `ipconfig /flushdns` - flush the DNS cache
+
+
+## The `ping` tool 
+- `ping IP`
+- `ping -t IP` -  ping the specified host until stopped
+- `ping -a IP` - resolve addresses to hostnames
+
+
+## The `tracert` tool
+- `tracert google.com` - tracing route to google.com
+
+## The `netstat` tool
+- `netstat` - current network connections
+- `netstat -b` - see applications
+
+## Other tools
+- `arp` - Displays and modifies the IP-to-Physical address translation tables used by
+address resolution protocol
+- `nslookup`
+
+
+
