@@ -1,0 +1,1 @@
+https://zitadel.com/docs
