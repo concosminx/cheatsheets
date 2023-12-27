@@ -52,3 +52,6 @@ gpg --list-secret-keys --keyid-format=long
 git config --global commit.gpgsign true git config --global gpg.program gpg git config --global user.signingkey ABCDEFGHIJKLMNOP
 gpg --armor --export ABCDEFGHIJKLMNOP
 ```
+- generate a new SSH key `ssh-keygen -t ed25519 -C "your_email@example.com"`
+- add the key to the SSH agent `eval "$(ssh-agent -s)"` and `ssh-add ~/.ssh/id_ed25519`
+- add the public key to Github `cat ~/.ssh/id_ed25519.pub`
