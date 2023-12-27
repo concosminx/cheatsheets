@@ -42,3 +42,13 @@ sudo apt install code
 
 - run `sudo apt remove code -y` to remove it
 - or install with snap `sudo snap install code` and remove it `sudo snap remove code --purge`
+
+Install and configure git 
+```
+sudo apt install git -Y
+git config --global user.name "Firstname Lastname" git config --global user.email "firstname.lastname@mail.com"
+gpg --generate-key
+gpg --list-secret-keys --keyid-format=long
+git config --global commit.gpgsign true git config --global gpg.program gpg git config --global user.signingkey ABCDEFGHIJKLMNOP
+gpg --armor --export ABCDEFGHIJKLMNOP
+```
