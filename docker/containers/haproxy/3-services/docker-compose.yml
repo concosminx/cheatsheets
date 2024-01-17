@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  haproxy:
+    image: haproxytech/haproxy-alpine:2.4
+    restart: unless-stopped
+    container_name: haproxy
+    ports:
+      - "80:80"
+      - "8404:8404"
+    volumes: 
+      - ./cfg:/usr/local/etc/haproxy:ro
+  
+  web1:
+    image: jmalloc/echo-server:latest
+    restart: unless-stopped
+    container_name: web1
+  web2:
+    image: jmalloc/echo-server:latest
+    restart: unless-stopped
+    container_name: web2  
+  web3:
+    image: jmalloc/echo-server:latest
+    restart: unless-stopped
+    container_name: web3
+
+networks:
+  default:
+    name: my-main-net
+    external: true
