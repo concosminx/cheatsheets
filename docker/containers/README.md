@@ -1,7 +1,9 @@
 Examples:
 
 - [ansible-semaphore](ansiblesemaphore/README.md)
+- [authentik](authentik/README.md)
 - [bind9](bind9/README.md)
+- [caddy](caddy/README.md)
 - [cadvisor](cadvisor/README.md)
 - [Checkmk](checkmk/README.md)
 - [ctop](ctop/README.md)
@@ -9,10 +11,13 @@ Examples:
 - [duplicati](duplicati/README.md)
 - [elk](elk/README.md)
 - [gitea](gitea/README.md)
+- [gotenberg](gotenberg/README.md)
 - [groovy](groovy/README.md)
 - [heimdall](heimdall/README.md)
+- [haproxy](haproxy/3-services/docker-compose.yml)
 - [homeassistant](homeassistant/README.md)
 - [homer](homer/README.md)
+- [invoiceninja](invoiceninja/README.md)
 - [Jasper Server](jasper-server/README.md)
 - [jellyfin](jellyfin/README.md)
 - [jenkins](jenkins/README.md)
@@ -40,8 +45,11 @@ Examples:
 - [Tomcat](tomcat/README.md)
 - [Traefik](traefik/README.md)
 - [uptime-kuma](uptime-kuma/README.md)
+- [varnish](varnish/docker-compose.yml)
+- [vault](vault/README.md)
 - [Wordpress](wordpress/README.md)
 - [xwiki](xwiki/README.md)
+- [zitadel](zitadel/README.md)
 
 
 Cleanup:
