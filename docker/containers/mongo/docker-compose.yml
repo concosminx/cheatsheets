@@ -1,9 +1,8 @@
 # Use root/example as user/password credentials
 version: '3.1'
 
-
-volumes:
-    mongo_data: {}
+#volumes:
+#    mongo_data: {}
 
 services:
 
@@ -12,7 +11,7 @@ services:
     restart: always
     command: --wiredTigerCacheSizeGB 1
     volumes:
-      - mongo_data:/data/db
+      - ./mongo_data:/data/db
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
@@ -26,3 +25,5 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+      ME_CONFIG_BASICAUTH_USERNAME: cosmin
+      ME_CONFIG_BASICAUTH_PASSWORD: super-password
