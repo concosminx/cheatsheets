@@ -16,6 +16,7 @@ Examples:
 - [heimdall](heimdall/README.md)
 - [haproxy](haproxy/3-services/docker-compose.yml)
 - [homeassistant](homeassistant/README.md)
+- [homepage](homepage/docker-compose.yml)
 - [homer](homer/README.md)
 - [invoiceninja](invoiceninja/README.md)
 - [Jasper Server](jasper-server/README.md)
@@ -24,6 +25,7 @@ Examples:
 - [kafka](kafka)
 - [Keycloak](keycloak/README.md)
 - [mongo-db](mongo/README.md)
+- [musicbrainz](musicbrainz/docker-compose.yml)
 - [navidrome](navidrome/README.md)
 - [netdata](netdata/README.md)
 - [nginx-nodejs-redis](nginx-nodejs-redis/compose.yaml)
@@ -48,6 +50,7 @@ Examples:
 - [varnish](varnish/docker-compose.yml)
 - [vault](vault/README.md)
 - [Wordpress](wordpress/README.md)
+- [WriteFreely](write-freely/README.md)
 - [xwiki](xwiki/README.md)
 - [zitadel](zitadel/README.md)
 
