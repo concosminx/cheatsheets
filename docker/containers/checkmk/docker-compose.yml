@@ -7,9 +7,9 @@ services:
     volumes:
       - './monitoring:/omd/sites'
       - '/etc/localtime:/etc/localtime:ro'
-    container_name: monitoring
+    container_name: checkmk
     restart: always
-    image: 'checkmk/check-mk-raw:master-daily'
+    image: 'checkmk/check-mk-raw:2.2.0-latest'
 
 networks:
   default:
