@@ -83,3 +83,8 @@ volumes:
     driver: local
   redis:
     driver: local
+
+networks:
+  default:
+    name: my-main-net
+    external: true
