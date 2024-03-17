@@ -1,1 +1,0 @@
-To create a new user run `writefreely -c /mnt/config/etc/writefreely/config.ini --create-admin cosmin:somelongpasswordhere` and restart the stack `docker compose restart`
