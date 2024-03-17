@@ -1,0 +1,12 @@
+
+version: '3.3'
+services:
+    musicbrainz:
+        container_name: musicbrainz
+        ports:
+            - '7120:5800'
+        volumes:
+            - './config:/config:rw'
+            - './music:/storage:rw'
+            #- '/mnt/data/media/music:/storage:rw'
+        image: mikenye/picard

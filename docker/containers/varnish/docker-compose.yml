@@ -1,0 +1,81 @@
+version: "3.4"
+services:
+  ghost:
+    image: ghost:5.9.4
+    environment:
+      url: https://www.mysite.com
+      mail__transport: SMTP
+      mail__options__host: ${MAIL_HOST?Variable not set}
+      mail__options__port: ${MAIL_PORT?Variable not set}
+      mail__options__auth__user: ${MAIL_USER?Variable not set}
+      mail__options__auth__pass: ${MAIL_PASS?Variable not set}
+      mail__from: ${MAIL_FROM?Variable not set}
+      mail__from: 
+      database__client: mysql
+      database__connection__host: ${DB_HOST?Variable not set}
+      database__connection__user: ${DB_USER?Variable not set}
+      database__connection__password: ${DB_PASS?Variable not set}
+      database__connection__database: ${DB_DB?Variable not set}
+    volumes:
+      - content:/var/lib/ghost/content
+    networks:
+      - default
+    deploy:
+      placement:
+        constraints:
+          - node.labels.blogs.mysite == true
+  db:
+    image: mysql:8.0
+    restart: always
+    networks:
+      - default
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASS?Variable not set}
+    deploy:
+      placement:
+        constraints:
+          - node.labels.blogs.mysite == true
+  varnish:
+    image: varnish:stable
+    container_name: varnish
+    restart: unless-stopped
+    configs:
+      - source: varnish_cfg
+        target: /etc/varnish/default.vcl
+    networks:
+      - default
+      - traefik-public
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=traefik-public
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.blogs-mysite-http.rule=Host(`www.mysite.com`) || Host(`mysite.com`) || Host(`blog.mysite.com`)
+        - traefik.http.routers.blogs-mysite-http.entrypoints=http
+        - traefik.http.routers.blogs-mysite-http.middlewares=https-redirect
+        - traefik.http.routers.blogs-mysite-https.rule=Host(`www.mysite.com`) || Host(`mysite.com`) || Host(`blog.mysite.com`)
+        - traefik.http.routers.blogs-mysite-https.entrypoints=https
+        - traefik.http.routers.blogs-mysite-https.tls=true
+        - traefik.http.routers.blogs-mysite-https.tls.certresolver=le
+        - traefik.http.routers.blogs-mysite-https.tls.options=mintls12@file
+        - traefik.http.services.blogs-mysite.loadbalancer.server.port=80
+        - traefik.http.middlewares.redirect-blogs-mysite.redirectregex.regex=^https://blog.mysite.com/(.*)
+        - traefik.http.middlewares.redirect-blogs-mysite.redirectregex.replacement=https://www.mysite.com/$${1}
+        - traefik.http.middlewares.redirect-blogs-mysite.redirectregex.permanent=true
+        - traefik.http.middlewares.redirect-blogs-mysite-nosub.redirectregex.regex=^https://mysite.com/(.*)
+        - traefik.http.middlewares.redirect-blogs-mysite-nosub.redirectregex.replacement=https://www.mysite.com/$${1}
+        - traefik.http.middlewares.redirect-blogs-mysite-nosub.redirectregex.permanent=true
+        - traefik.http.routers.blogs-mysite-https.middlewares=redirect-blogs-mysite, redirect-blogs-mysite-nosub
+volumes:
+  content:
+  data:
+configs:
+  varnish_cfg:
+    file: ./default.vcl
+networks:
+  traefik-public:
+    external: true
+  default:
+    external: false
