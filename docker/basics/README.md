@@ -15,7 +15,7 @@ Index
 	- [Lifecycle](#lifecycle-2)
 	- [Info](#info-2)
 	- [Connection](#connection)
-- [Registry & Repository](#registry--repository)
+- [Registry \& Repository](#registry--repository)
 - [Dockerfile](#dockerfile)
 	- [Instructions](#instructions)
 - [Volumes](#volumes)
@@ -142,8 +142,11 @@ To enter a running container, attach a new shell process to a running container 
 
 ## Cleaning up
 
+- `docker rmi` command to remove specific images
+- containers `docker rm -f $(docker ps -q)`
+- images `docker rmi $(docker images -q)`
 
-`docker rmi` command to remove specific images
+
 
 # Networks
 
