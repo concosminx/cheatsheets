@@ -23,7 +23,6 @@ Index
 	- [Info](#info-3)
 - [Exposing ports](#exposing-ports)
 - [Prune](#prune)
-- [CheatSheet](#cheatsheet)
 	- [Linux](#linux)
 	- [Powershell (windows)](#powershell-windows)
 	- [Cleanup for windows (.bat)](#cleanup-for-windows-bat)
@@ -272,8 +271,6 @@ If you forget what you mapped the port to on the host container, use `docker por
 - `docker image prune`
 
 
-# CheatSheet
-
 ## Linux
 
 * kill all running containers: `docker kill $(docker ps -q)`
@@ -293,7 +290,14 @@ If you forget what you mapped the port to on the host container, use `docker por
 
 ## Cleanup for windows (.bat)
 
-[script](docker-clean.bat)
+```Batchfile
+@echo off
+FOR /f "tokens=*" %%i IN ('docker ps -aq') DO docker rm %%i
+FOR /f "tokens=*" %%i IN ('docker images --format "{{.ID}}"') DO docker rmi %%i
+
+docker container prune -f
+docker system prune -f
+```
 
 
 # Docker file example

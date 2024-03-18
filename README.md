@@ -1,12 +1,12 @@
 # Cheat sheets | cookbooks
 
-- [Android](android/README.md)
-- [Certificates (x.509)](certificates/README.md)
-- [Docker](docker/README.md)
-- [DotFiles](dotfiles/README.md)
-- [**J**ava **V**irtual **M**achine](jvm/README.md)
-- [Linux](linux/README.md)
-- [nginx](nginx/README.md)
-- [OpenSSL](openssl/README.md)
-- [Windows](windows/README.md)
-- [MiniKube](minikube/README.md)
+| Index  | 
+| ------------- | 
+| [Android development on Windows ](android/README.md) | 
+| [OpenSSL certificates](certificates_and_openssl//README.md) | 
+| [Docker documentation](docker/README.md) | 
+| [Windows batch files](dotfiles/README.md) | 
+| [Java Virtual Machine](jvm/README.md) | 
+| [Git notes](git/README.md) | 
+| [Linux notes](linux/README.md) | 
+| [Windows notes](windows/README.md) | 
