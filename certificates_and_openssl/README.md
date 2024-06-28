@@ -323,4 +323,5 @@ openssl pkcs12 -in domain.pfx -nodes -out domain.combined.crt
 > Tools and source material
 
 * [Format a X.509 certificate / private key](https://www.samltool.com/format_x509cert.php)
-* Source material [here](https://www.madboa.com/geek/openssl/#how-do-i-find-out-what-openssl-version-im-running).
+* Source material [here](https://www.madboa.com/geek/openssl/#how-do-i-find-out-what-openssl-version-im-running)
+* Maria db self signed certificate [here](https://mariadb.com/docs/server/security/data-in-transit-encryption/create-self-signed-certificates-keys-openssl/)
