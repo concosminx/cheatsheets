@@ -10,3 +10,4 @@
 | [Git notes](git/README.md) | 
 | [Linux notes](linux/README.md) | 
 | [Windows notes](windows/README.md) | 
+| [GPG](gpg/README.md) | 
