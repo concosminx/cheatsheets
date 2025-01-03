@@ -52,5 +52,43 @@ gpg --export --armor --output akeyexample.gpg.pub akey@example.com
 gpg --export-secret-keys --armor --output akeyexample.gpg akey@example.com
 ```
 
+### How To Import Other Users’ Public Keys
+```shell
+gpg --import name_of_pub_key_file
+```
+
+## How To Verify and Sign Keys
+- Verify the Other Person’s Identity - get the fingerprint of a public key by typing `gpg --fingerprint your_email@address.com`
+- Sign Their Key - `gpg --sign-key email@example.com`
+- Export signed key - `gpg --output ~/signed.key --export --armor email@example.com`
+- Import signed key - `gpg --import ~/signed.key`
+
+### Upload to a key server
+```shell
+gpg --send-keys --keyserver pgp.mit.edu key_id
+```
 
 
+
+## Encrypt and Decrypt Messages with GPG
+
+### Encrypt Messages
+```shell
+gpg --output doc.gpg --encrypt --recipient x@example.org doc.txt
+```
+
+### Decrypt Messages
+```shell
+gpg --output doc --decrypt doc.gpg
+```
+
+### Update the key information 
+- `gpg --refresh-keys`
+- `gpg --keyserver key_server --refresh-keys`
+
+--- 
+
+Extras
+- [https://gpg4win.de/about.html](https://gpg4win.de/about.html)
+- [https://www.digitalocean.com/community/tutorials/how-to-use-gpg-to-encrypt-and-sign-messages#how-to-import-other-users-public-keys](https://www.digitalocean.com/community/tutorials/how-to-use-gpg-to-encrypt-and-sign-messages#how-to-import-other-users-public-keys)
+- [https://www.gnupg.org/gph/en/manual/c14.html](https://www.gnupg.org/gph/en/manual/c14.html)
